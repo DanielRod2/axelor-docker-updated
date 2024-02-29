@@ -24,4 +24,5 @@ $ docker run -p 8080:80  -d -v ./axelor-erp-v8.0.1.war:/var/lib/tomcat/webapps/R
 ```
 
 Once app completes database initialization, it can be access at: http://localhost:8080
+
 user/pass: admin/admin
