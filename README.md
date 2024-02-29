@@ -11,28 +11,16 @@ It assumes you have Docker installed on your system.
 ```sh
 $ cd aio-base
 $ docker build -t axelor/aio-base .
-```
 
-### Build builder image
-
-```sh
-$ cd aio-builder
-$ docker build -t axelor/aio-builder .
-```
-
-### Build app image
-
-```sh
-$ cd aio-erp
-$ docker build -t axelor/aio-erp .
 ```
 
 ## Run app container
 
-Once app image is built, you can run it like this:
+Once app image is built, get the image and can run it like this:
 
 ```sh
-$ docker run -it -p 8080:80 axelor/aio-erp
+$ curl -OL https://github.com/axelor/open-suite-webapp/releases/download/v8.0.1/axelor-erp-v8.0.1.war
+$ docker run -p 8080:80  -d -v ./axelor-erp-v8.0.1.war:/var/lib/tomcat/webapps/ROOT.war axelor/aio-base
 ```
 
 Once app completes database initialization, it can be access at: http://localhost:8080
